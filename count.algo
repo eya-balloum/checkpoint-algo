@@ -1,24 +1,28 @@
 ALGORITHM count
 VAR
-   str : string
-   NB_c,NB_v: INTEGER:=0
-   NB_w :INTEGER:=1
-   i : INTEGER:=0
+   str : string                 // A variable to store the input sentence
+   NB_c, NB_v: INTEGER := 0     // Counters: NB_c for characters, NB_v for vowels
+   NB_w : INTEGER := 1          // Counter for words (starting at 1 assuming at least one word)
+   i : INTEGER := 0             // Index to loop through the string
 BEGIN
-    Write("Enter a sentence that end with a point")
-    read(str)
-    WHILE (str <> "." ) DO
-         NB_c=NB_c+ 1
+    Write("Enter a sentence that ends with a point")   // Ask the user for input
+    read(str)                                          // Read the input sentence
 
-       IF (str(i)=" ") THEN
-        NB_w=NB_w+1
-        END_IF    
-        IF (str(i)="a","e","i","y","o") THEN
-        NB_v=NB_v+1
-        END_IF
-        i++
+    WHILE (str <> "." ) DO                             // Loop until the sentence ends with a dot
+         NB_c = NB_c + 1                               // Increase character count
+
+         IF (str(i) = " ") THEN                        // If the current character is a space
+            NB_w = NB_w + 1                            // Increase word count
+         END_IF    
+
+         IF (str(i) = "a", "e", "i", "y", "o") THEN     // If the character is a vowel (incomplete check!)
+            NB_v = NB_v + 1                            // Increase vowel count
+         END_IF
+
+         i++                                           // Move to the next character
     END_WHILE
-    write(NB_c)
-    write(NB_w)
-    write(NB_v)
+
+    write(NB_c)                                        // Print the number of characters
+    write(NB_w)                                        // Print the number of words
+    write(NB_v)                                        // Print the number of vowels
 END
